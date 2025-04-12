@@ -1,0 +1,440 @@
+@@include('./partials/html.html')
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Products"})
+
+    @@include('./partials/head-css.html')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @@include('./partials/menu.html')
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="page-content">
+
+            <!-- Start Content-->
+            <div class="page-container">
+
+                @@include("./partials/page-title.html", {"subtitle":"eCommerce","title":"Products"})
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header border-bottom">
+                                <div class="d-flex flex-wrap justify-content-between gap-2">
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control ps-4" placeholder="Search products">
+                                        <i class="ti ti-search position-absolute top-50 translate-middle-y ms-2"></i>
+                                    </div>
+                          
+                          <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle show-cart-btn" id = "show-cart-btn">  <i class="ti ti-shopping-cart fs-5"></i></a>
+                                    <div>
+                                        <a href="apps-ecommerce-products-add.html" class="btn btn-primary"><i class="ti ti-plus me-1"></i>Add Products</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap mb-0">
+                                    <thead class="bg-dark-subtle">
+                                        <tr>
+                                            <th class="ps-3" style="width: 50px;">
+                                                <input type="checkbox" class="form-check-input" id="customCheck1">
+                                            </th>
+                                            <th>Product ID</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th class="text-center" style="width: 120px;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="product-table-body">
+                                        <!-- Dynamic data will be inserted here -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-end">
+                                    <ul class="pagination justify-content-center mb-0">
+                                        <li class="page-item disabled">
+                                            <a href="#" class="page-link"><i class="ti ti-chevrons-left"></i></a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a href="#" class="page-link">1</a>
+                                        </li>
+                                        <li class="page-item active">
+                                            <a href="#" class="page-link">2</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a href="#" class="page-link">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a href="#" class="page-link"><i class="ti ti-chevrons-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> <!-- end card-->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+            </div> <!-- container -->
+
+            @@include('./partials/footer.html')
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    @@include('./partials/customizer.html')
+
+    @@include('./partials/footer-scripts.html')
+
+    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.getElementById("product-table-body");
+
+    function loadProducts() {
+        tableBody.innerHTML = "";
+
+        axios.get("http://localhost:5000/products/getproduct")
+            .then(response => {
+                const products = response.data;
+
+                products.forEach((product, index) => {
+                    const firstImage = product.images && product.images.length > 0
+                        ? product.images[0]
+                        : "assets/images/default.png";
+
+                    const row = `
+                        <tr>
+                            <td class="ps-3">
+                                <input type="checkbox" class="form-check-input" id="productCheck${index + 1}">
+                            </td>
+                            <td>${product.id}</td>
+                            <td>
+                                <div class="d-flex justify-content-start align-items-center gap-3">
+                                    <div class="avatar-md">
+                                        <img src="${firstImage}" alt="${product.name}" class="img-fluid rounded-2" style="width: 50px; height: 30px;">
+                                    </div>
+                                    ${product.name}
+                                </div>
+                            </td>
+                            <td>${product.price}</td>
+                            <td class="pe-3">
+                                <div class="hstack gap-1 justify-content-end">
+                                    <a href="javascript:void(0);" data-id="${product.id}" class="btn btn-soft-primary btn-icon btn-sm rounded-circle view-product-btn"> <i class="ti ti-eye"></i></a>
+                                    <a href="javascript:void(0);" data-id="${product.id}" class="btn btn-soft-success btn-icon btn-sm rounded-circle edit-product-btn"> <i class="ti ti-edit fs-16"></i></a>
+                                    <a href="javascript:void(0);" data-id="${product.id}" class="btn btn-soft-danger btn-icon btn-sm rounded-circle delete-product-btn"> <i class="ti ti-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                    tableBody.insertAdjacentHTML("beforeend", row);
+                });
+
+                deleteRow();
+                editRow();
+                viewRow();
+            })
+            .catch(error => {
+                console.error("Error fetching products:", error);
+                tableBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger">Failed to load products</td></tr>`;
+            });
+    }
+
+    function deleteRow() {
+        const deleteButtons = document.querySelectorAll('.delete-product-btn');
+        deleteButtons.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const productId = btn.dataset.id;
+                if (confirm("Are you sure you want to delete this product?")) {
+                    try {
+                        const res = await axios.put(`http://localhost:5000/products/deleteproduct/${productId}`);
+                        alert(res.data.message);
+                        loadProducts();
+                    } catch (error) {
+                        console.error(error);
+                        alert("Error deleting product");
+                    }
+                }
+            });
+        });
+    }
+
+    function editRow() {
+        const editButtons = document.querySelectorAll('.edit-product-btn');
+        editButtons.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const productId = btn.dataset.id;
+                try {
+                    const res = await axios.get(`http://localhost:5000/products/getproduct/${productId}`);
+                    const product = res.data[0];
+
+                    document.getElementById('editProductId').value = product.id;
+                    document.getElementById('editProductName').value = product.name;
+                    document.getElementById('editProductPrice').value = product.price;
+
+                    const imagesContainer = document.getElementById('editProductImages');
+                    imagesContainer.innerHTML = '';
+                    product.images.forEach(imgUrl => {
+                        const img = document.createElement('img');
+                        img.src = imgUrl;
+                        img.alt = product.name;
+                        img.style.width = '100px';
+                        img.style.height = '100px';
+                        img.style.objectFit = 'cover';
+                        imagesContainer.appendChild(img);
+                    });
+
+                    new bootstrap.Modal(document.getElementById("editProductModal")).show();
+                } catch (error) {
+                    console.error(error);
+                    alert("Error fetching product details");
+                }
+            });
+        });
+    }
+
+   var productId = "";
+    function viewRow() {
+  const viewButtons = document.querySelectorAll('.view-product-btn');
+
+  viewButtons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+       productId = btn.dataset.id;
+      
+      
+      try {
+        const res = await axios.get(`http://localhost:5000/products/getproduct/${productId}`);
+        const product = res.data[0];
+        // console.log(product);
+
+       
+        document.getElementById('viewProductName').textContent = product.name;
+        document.getElementById('viewProductPrice').textContent = product.price;
+
+    
+        const carouselInner = document.getElementById('viewProductCarouselInner');
+        carouselInner.innerHTML = ''; 
+
+        if (product.images && product.images.length > 0) {
+          product.images.forEach((imgUrl, index) => {
+            const carouselItem = document.createElement('div');
+            carouselItem.className = `carousel-item${index === 0 ? ' active' : ''}`;
+            carouselItem.innerHTML = `
+              <img src="${imgUrl}" class="d-block w-100" alt="${product.name}" style="height: 400px; object-fit: cover;">
+            `;
+            carouselInner.appendChild(carouselItem);
+          });
+        } else {
+          carouselInner.innerHTML = `
+            <div class="carousel-item active">
+              <img src="assets/images/default.png" class="d-block w-100" alt="No Image" style="height: 400px; object-fit: cover;">
+            </div>
+          `;
+        }
+
+       
+        const viewModal = new bootstrap.Modal(document.getElementById("viewProductModal"));
+        viewModal.show();
+
+      } catch (error) {
+        console.error("Error loading product details:", error);
+        alert("Something went wrong while fetching product details.");
+      }
+    });
+  });
+}
+
+document.getElementById('addToCartBtn').addEventListener('click', async () => {
+    if (!productId) {
+        alert("No product selected");
+        return;
+    }
+    console.log(productId);
+    
+    try {
+        const res = await axios.post(`http://localhost:5000/cart/addcart/${productId}`);
+        console.log(res.data);
+        
+        alert(res.data.message || "Product added to cart successfully");
+    } catch (error) {
+        console.error(error);
+        alert("Error adding product to cart");
+    }
+});
+
+  document.getElementById('show-cart-btn').addEventListener('click',function showCartProducts() {
+    axios.get("http://localhost:5000/cart/cartproducts")
+        .then(response => {
+            const cartProducts = response.data;
+            console.log(cartProducts);
+
+           
+            const cartContainer = document.getElementById('cartProductsContainer');
+            cartContainer.innerHTML = '';
+
+            if (cartProducts.length === 0) {
+                cartContainer.innerHTML = '<p class="text-center">Your cart is empty.</p>';
+            } else {
+                cartProducts.forEach(product => {
+                    const firstImage = product.images && product.images.length > 0
+                        ? product.images[0]
+                        : 'assets/images/default.png';
+
+                    const cartItem = `
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="${firstImage}" alt="${product.name}" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-1">${product.name}</h6>
+                                <p class="mb-0 text-muted">₹${product.price}</p>
+                            </div>
+                        </div>
+                    `;
+                    cartContainer.insertAdjacentHTML('beforeend', cartItem);
+                });
+            }
+
+            
+            const cartModal = new bootstrap.Modal(document.getElementById("cartModal"));
+            cartModal.show();
+        })
+        .catch(error => {
+            console.error("Error loading cart products:", error);
+            alert("Failed to load cart products.");
+        });
+});
+
+    document.getElementById('editProductForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const productId = document.getElementById('editProductId').value;
+        const updatedProduct = {
+            name: document.getElementById('editProductName').value,
+            price: document.getElementById('editProductPrice').value,
+            images: Array.from(document.getElementById('editProductImages').children).map(img => img.src)
+           
+        };
+
+        try {
+            const res = await axios.put(`http://localhost:5000/products/editproduct/${productId}`, updatedProduct);
+            alert(res.data.message || "Product updated successfully");
+            bootstrap.Modal.getInstance(document.getElementById("editProductModal")).hide();
+            loadProducts();
+        } catch (error) {
+            console.error(error);
+            alert("Error updating product");
+        }
+    });
+
+    loadProducts();
+});
+</script>
+
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <form id="editProductForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProductLabel">Edit Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editProductId">
+          <div class="mb-3">
+            <label for="editProductName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="editProductName" required>
+          </div>
+          <div class="mb-3">
+            <label for="editProductPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="editProductPrice" required>
+          </div>
+          <div id="editProductImages" class="d-flex gap-2 flex-wrap"></div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Save Changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="viewProductModal" tabindex="-1" aria-labelledby="viewProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewProductModalLabel">View Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 id="viewProductName"></h4>
+        <p><strong>Price:</strong> ₹<span id="viewProductPrice"></span></p>
+
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" id="viewProductCarouselInner"></div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+  <button class="btn btn-primary" id="addToCartBtn">
+    <i class="bi bi-cart-plus me-2"></i>Add to Cart
+  </button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+   
+      <div class="modal-body">
+        <div id="cartProductsContainer">
+         
+        </div>
+      </div>
+
+     
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

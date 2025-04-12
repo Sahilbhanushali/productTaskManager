@@ -1,0 +1,10 @@
+//
+// alert.scss
+//
+
+@each $state in map-keys($theme-colors) {
+
+    .alert-#{$state}{
+        box-shadow: #fff 3px 3px 0 0, var(--#{$prefix}#{$state}) 3px 3px 0 1px;
+    }
+}

@@ -1,0 +1,241 @@
+@@include('./partials/html.html')
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Add Products"})
+
+    <!-- Quill css -->
+    <link href="assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+    <!-- One of the following themes -->
+    <link rel="stylesheet" href="assets/vendor/@simonwep/pickr/themes/classic.min.css"> <!-- 'classic' theme -->
+    <link rel="stylesheet" href="assets/vendor/@simonwep/pickr/themes/monolith.min.css"> <!-- 'monolith' theme -->
+    <link rel="stylesheet" href="assets/vendor/@simonwep/pickr/themes/nano.min.css"> <!-- 'nano' theme -->
+
+    @@include('./partials/head-css.html')
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @@include('./partials/menu.html')
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="page-content">
+
+            <!-- Start Content-->
+            <div class="page-container">
+
+                @@include("./partials/page-title.html", {"subtitle":"eCommerce","title":"Add Products"})
+
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="card">
+                            <div class="card-header border-bottom border-dashed">
+                                <h4 class="card-title">Product Information</h4>
+                                <p class="text-muted mb-0">Product Information encompasses all data within an organization pertaining to the products it manufactures, procures, sells, or distributes.</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="productName" class="form-label">Product Name</label>
+                                            <input type="text" name="name"  class="form-control" id="productName" placeholder="Enter product name" required="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="Price" class="form-label">Price</label>
+                                            <input type="number" name = "price" class="form-control" id="price" placeholder="Enter product price" required="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-header border-bottom border-dashed">
+                                <h4 class="card-title">Product Gallery</h4>
+                                <p class="text-muted mb-0">You need at least 4 images. Pay attention to the quality of the pictures you add (important)</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <form action="/" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
+                                        <div class="fallback">
+                                            <input name="file" type="file" />
+                                        </div>
+
+                                        <div class="dz-message needsclick">
+                                            <i class="h1 ti ti-cloud-upload mb-4"></i>
+                                            <h4>Drop files here or click to upload.</h4>
+                                            <span class="text-muted fs-13">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                                        </div>
+                                    </form>
+
+                                    <!-- Preview -->
+                                    <div class="dropzone-previews mt-3" id="file-previews"></div>
+
+                                    <!-- file preview template -->
+                                    <div class="d-none" id="uploadPreviewTemplate">
+                                        <div class="card mt-1 mb-0 shadow-none border">
+                                            <div class="p-2">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <img data-dz-thumbnail src="#" class="avatar-sm rounded bg-light" alt="">
+                                                    </div>
+                                                    <div class="col ps-0">
+                                                        <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
+                                                        <p class="mb-0" data-dz-size></p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <!-- Button -->
+                                                        <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove>
+                                                            <i class="ti ti-x"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end file preview template -->
+                                </div>
+                            </div>
+                            <div class="card-footer border-top border-dashed text-end">
+                                <div class="d-flex justify-content-end gap-1">
+                                    <!-- NEW -->
+<button type="button" id="createProductBtn" class="btn btn-primary">Create Product</button>
+
+                                    <a href="#!" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <!-- container -->
+
+            @@include('./partials/footer.html')
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    @@include('./partials/customizer.html')
+
+    @@include('./partials/footer-scripts.html')
+
+    <!-- Dropzone File Upload js -->
+    <script src="assets/vendor/dropzone/dropzone-min.js"></script>
+
+    <script src="assets/vendor/quill/quill.min.js"></script>
+
+    <!-- Modern colorpicker bundle js -->
+    <script src="assets/vendor/@simonwep/pickr/pickr.min.js"></script>
+
+    <script src="assets/js/pages/ecommerce-add-products.js"></script>
+<script>
+Dropzone.autoDiscover = false;
+
+
+if (Dropzone.instances.length > 0) {
+    Dropzone.instances.forEach(dz => dz.destroy());
+}
+
+const uploadedImageURLs = [];
+
+const myDropzone = new Dropzone("#myAwesomeDropzone", {
+    url: "https://api.cloudinary.com/v1_1/cheemscoder/image/upload",
+    method: "post",
+    paramName: "file",
+    maxFiles: 10,
+    maxFilesize: 5,
+    acceptedFiles: "image/*",
+    autoProcessQueue: false,
+    addRemoveLinks: true,
+    parallelUploads: 10,
+    init: function () {
+        const dz = this;
+
+        document.querySelector("#createProductBtn").addEventListener("click", function (e) {
+
+            alert("Creating product...");
+            e.preventDefault();
+
+            const productName = document.querySelector("#productName").value.trim();
+            const price = document.querySelector("#price").value.trim();
+
+            if (!productName || !price) {
+                alert("Please enter product name and price.");
+                return;
+            }
+
+            if (dz.getQueuedFiles().length > 0) {
+                uploadedImageURLs.length = 0; 
+                dz.processQueue(); 
+            } else {
+                submitProductData(); 
+            }
+        });
+
+        dz.on("sending", function (file, xhr, formData) {
+            formData.append("upload_preset", "product_uploads");
+        });
+
+        dz.on("success", function (file, response) {
+            if (response.secure_url) {
+                uploadedImageURLs.push(response.secure_url);
+            }
+        });
+
+        dz.on("queuecomplete", function () {
+            
+            setTimeout(() => {
+                submitProductData();
+            }, 300);
+        });
+    }
+});
+
+function submitProductData() {
+    const productName = document.querySelector("#productName").value.trim();
+    const price = document.querySelector("#price").value.trim();
+
+    $.ajax({
+        url: "http://localhost:5000/products/createproduct",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            name: productName,
+            price: price,
+            images: uploadedImageURLs
+        }),
+        success: function (res) {
+            alert(" Product created successfully!");
+            window.location.href = "http://localhost:3000/apps-ecommerce-products.html";
+        },
+        error: function (err) {
+            console.error(err);
+            alert(" Failed to create product. See console for details.");
+        }
+    });
+}
+</script>
+
+
+
+</body>
+
+</html>

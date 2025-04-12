@@ -1,0 +1,818 @@
+@@include('./partials/html.html')
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Sellers Details"})
+
+    <link rel="stylesheet" href="assets/vendor/apexcharts/apexcharts.css">
+
+    @@include('./partials/head-css.html')
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @@include('./partials/menu.html')
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="page-content">
+
+            <!-- Start Content-->
+            <div class="page-container">
+
+                @@include("./partials/page-title.html", {"subtitle":"eCommerce","title":"Sellers Details"})
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="sticky-div">
+                            <div class="card overflow-hidden">
+                                <div class="card-body border-bottom border-dashed">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="avatar-md position-relative bg-light rounded shadow">
+                                            <div class="avatar-title">
+                                                <img src="assets/images/products/logo/logo-1.svg" alt="" class="avatar-sm">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4 class="header-title mb-1">Axial Softwares</h4>
+                                            <p class="text-muted mb-0">Manufacture &amp; Retail</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive table-card">
+                                        <table class="table align-middle table-borderless mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Owner Name :</th>
+                                                    <td class="p-0 pb-3">Lynda Johanson</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Company Type :</th>
+                                                    <td class="p-0 pb-3">LLP</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Location :</th>
+                                                    <td class="p-0 pb-3">South America</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Website :</th>
+                                                    <td class="p-0 pb-3"><a href="#!" class="text-reset">paces@codertemes.com</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Phone Number :</th>
+                                                    <td class="p-0 pb-3"><a href="tel:+96 63536-47910">+(143) 94862-59863</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Fax :</th>
+                                                    <td class="p-0 pb-3"><a href="tel:+96 63536-47910">+9 63536-47910</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="p-0 pb-3">Since :</th>
+                                                    <td class="p-0 pb-3">1986</td>
+                                                </tr>
+                                            </tbody><!-- end table body -->
+                                        </table><!-- end table -->
+                                    </div>
+
+                                    <div>
+                                        <h4 class="header-title mb-2">Social Media :</h4>
+                                        <ul class="hstack gap-2 list-unstyled mb-0">
+                                            <li>
+                                                <a href="#!" class="btn btn-soft-success btn-icon btn-sm"><i class="ti ti-brand-whatsapp"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!" class="btn btn-soft-primary btn-icon btn-sm"><i class="ti ti-brand-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!" class="btn btn-soft-info btn-icon btn-sm"><i class="ti ti-brand-x-filled"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#!" class="btn btn-soft-danger btn-icon btn-sm"><i class="ti ti-mail"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+
+                            <div class="card">
+                                <div class="card-header border-bottom border-dashed">
+                                    <h4 class="header-title mb-0">Reviews</h4>
+                                </div><!-- end card-header -->
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                        <span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.5 Out Of 5</span>
+                                        <p class="mb-0">Total 5.50k reviews</p>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="flex-shrink-0">
+                                            <i class="ti ti-star-filled fs-12 text-warning"></i> 5
+                                        </span>
+                                        <div class="progress progress-md rounded-pill flex-grow-1 bg-success-subtle" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped bg-success" style="width: 100%"></div>
+                                        </div>
+                                        <span class="flex-shrink-0">2.0k</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="flex-shrink-0">
+                                            <i class="ti ti-star-filled fs-12 text-warning"></i> 4
+                                        </span>
+                                        <div class="progress progress-md rounded-pill flex-grow-1 bg-primary-subtle" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped bg-primary" style="width: 80%"></div>
+                                        </div>
+                                        <span class="flex-shrink-0">1.0k</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="flex-shrink-0">
+                                            <i class="ti ti-star-filled fs-12 text-warning"></i> 3
+                                        </span>
+                                        <div class="progress progress-md rounded-pill flex-grow-1 bg-warning-subtle" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped bg-warning" style="width: 60%"></div>
+                                        </div>
+                                        <span class="flex-shrink-0">500</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="flex-shrink-0">
+                                            <i class="ti ti-star-filled fs-12 text-warning"></i> 2
+                                        </span>
+                                        <div class="progress progress-md rounded-pill flex-grow-1 bg-danger-subtle" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped bg-danger" style="width: 40%"></div>
+                                        </div>
+                                        <span class="flex-shrink-0">200</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="flex-shrink-0">
+                                            <i class="ti ti-star-filled fs-12 text-warning"></i> 1
+                                        </span>
+                                        <div class="progress progress-md rounded-pill flex-grow-1 bg-secondary-subtle" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-striped bg-secondary" style="width: 20%"></div>
+                                        </div>
+                                        <span class="flex-shrink-0">160</span>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+
+                            <div class="card">
+                                <div class="card-header border-bottom border-dashed">
+                                    <h4 class="header-title">Customer Reviews</h4>
+                                </div><!-- end card-header -->
+                                <div class="card-body" data-simplebar style="height: 200px;">
+                                    <div class="d-flex flex-column gap-2">
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="bg-body p-2 rounded-2">
+                                                <div class="d-flex">
+                                                    <div class="flex-shrink-0 avatar-md">
+                                                        <div class="avatar-title bg-body-secondary rounded">
+                                                            <img src="assets/images/products/logo/logo-2.svg" alt="" height="30">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <div>
+                                                            <p class="text-dark mb-1 fst-italic fw-medium">"Exquisite product with seamless gaming experience."</p>
+                                                            <div class="fs-11 align-middle text-warning">
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-1 text-dark">
+                                                    - by <cite title="Source Title">Epic Gamers</cite>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="bg-body p-2 rounded-2">
+                                                <div class="d-flex">
+                                                    <div class="flex-shrink-0 avatar-md">
+                                                        <div class="avatar-title bg-body-secondary rounded">
+                                                            <img src="assets/images/products/logo/logo-3.svg" alt="" height="30">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <div>
+                                                            <p class="text-dark mb-1 fst-italic fw-medium">"Gorgeous product delivering an incredibly fluid gaming experience."</p>
+                                                            <div class="fs-11 align-middle text-warning">
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-1 text-dark">
+                                                    - by <cite title="Source Title">Jems Keller</cite>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="bg-body p-2 rounded-2">
+                                                <div class="d-flex">
+                                                    <div class="flex-shrink-0 avatar-md">
+                                                        <div class="avatar-title bg-body-secondary rounded">
+                                                            <img src="assets/images/products/logo/logo-4.svg" alt="" height="30">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <div>
+                                                            <p class="text-dark mb-1 fst-italic fw-medium">"Stunning product, offering an exceptionally sleek gaming journey."</p>
+                                                            <div class="fs-11 align-middle text-warning">
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                                <i class="ti ti-star-filled"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-1 text-dark">
+                                                    - by <cite title="Source Title">David Warner</cite>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+
+
+                            <div class="card">
+                                <div class="card-header border-bottom border-dashed">
+                                    <h4 class="header-title mb-0">Contact Support</h4>
+                                </div><!-- end card-header -->
+                                <div class="card-body">
+                                    <form action="#">
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="form-control-textarea" rows="4" placeholder="Enter your messages..."></textarea>
+                                        </div>
+                                        <div class="text-end">
+                                            <button type="submit" class="btn btn-secondary">Send Messages <i class="ti ti-send-2 align-baseline ms-1"></i></button>
+                                        </div>
+                                    </form>
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div><!-- end sticky-div -->
+                    </div><!-- end col -->
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="card">
+                                    <div class="card-body d-flex align-items-center gap-2">
+                                        <div class="avatar-md bg-primary-subtle text-primary d-inline-flex align-items-center justify-content-center rounded-2"><i class="ti ti-truck-delivery fs-24"></i></div>
+                                        <div>
+                                            <p class="fs-15 fw-medium text-dark mb-1">Orders</p>
+                                            <h4 class="mb-0">9,345</h4>
+                                        </div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-lg-3">
+                                <div class="card">
+                                    <div class="card-body d-flex align-items-center gap-2">
+                                        <div class="avatar-md bg-danger-subtle text-danger d-inline-flex align-items-center justify-content-center rounded-2"><i class="ti ti-currency-dollar fs-24"></i></div>
+                                        <div>
+                                            <p class="fs-15 fw-medium text-dark mb-1">Earnings</p>
+                                            <h4 class="mb-0">$842.92M</h4>
+                                        </div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-lg-3">
+                                <div class="card">
+                                    <div class="card-body d-flex align-items-center gap-2">
+                                        <div class="avatar-md bg-warning-subtle text-warning d-inline-flex align-items-center justify-content-center rounded-2"><i class="ti ti-receipt-refund fs-24"></i></div>
+                                        <div>
+                                            <p class="fs-15 fw-medium text-dark mb-1">Refunds</p>
+                                            <h4 class="mb-0">328</h4>
+                                        </div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                            <div class="col-lg-3">
+                                <div class="card">
+                                    <div class="card-body d-flex align-items-center gap-2">
+                                        <div class="avatar-md bg-info-subtle text-info d-inline-flex align-items-center justify-content-center rounded-2"><i class="ti ti-message fs-24"></i></div>
+                                        <div>
+                                            <p class="fs-15 fw-medium text-dark mb-1">Conversation Ratio</p>
+                                            <h4 class="mb-0">18.92%</h4>
+                                        </div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card overflow-hidden">
+                                    <div class="card-header d-flex align-items-center gap-2 border-bottom border-dashed">
+                                        <h5 class="header-title flex-grow-1 mb-0">Portfolio Overview</h5>
+                                        <div class="dropdown">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="ti ti-dots-vertical"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <!-- item-->
+                                                <a href="javascript:void(0);" class="dropdown-item">All</a>
+                                                <!-- item-->
+                                                <a href="javascript:void(0);" class="dropdown-item">Last Week</a>
+                                                <!-- item-->
+                                                <a href="javascript:void(0);" class="dropdown-item">Last Month</a>
+                                                <!-- item-->
+                                                <a href="javascript:void(0);" class="dropdown-item">Last Year</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="portfolio_overview" class="apex-charts" data-colors='#ce7e7e, #fa5c7c, #6ac75a'></div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-bottom border-light">
+                                        <div class="row g-3 justify-content-between">
+                                            <div class="col-lg-3">
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control ps-4" placeholder="Search products, price etc...">
+                                                    <i class="ti ti-search position-absolute top-50 translate-middle-y ms-2"></i>
+                                                </div>
+                                            </div><!--end col-->
+                                            <div class="col-lg-auto">
+                                                <a href="apps-ecommerce-products-add.html" class="btn btn-primary"><i class="ti ti-circle-plus align-baseline me-1"></i> Add Product</a>
+                                            </div><!--end col-->
+                                        </div>
+                                    </div><!-- end header -->
+                                    <div class="table-responsive">
+                                        <table class="table table-hover text-nowrap mb-0">
+                                            <thead class="bg-light-subtle">
+                                                <tr>
+                                                    <th style="width: 20px;">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck">
+                                                        </div>
+                                                    </th>
+                                                    <th>SKU ID</th>
+                                                    <th>Product </th>
+                                                    <th>Brand</th>
+                                                    <th>Quantity</th>
+                                                    <th>Orders</th>
+                                                    <th>Price</th>
+                                                    <th>Rating</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                    <th class="text-center">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck1">
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/1.png" alt="Product-1" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">PS-5 Game</span>
+                                                                <span>Category : Game</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Sony</span></td>
+                                                    <td>242</td>
+                                                    <td>86</td>
+                                                    <td>$14.5</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.5</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 20, 2023</span>
+                                                        <small>12.12AM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success-subtle text-success fs-12 p-1">Published</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck2">
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/2.png" alt="Product-2" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Canon Camera</span>
+                                                                <span>Category : Electronics</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Canon</span></td>
+                                                    <td>389</td>
+                                                    <td>149</td>
+                                                    <td>$180.68</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 3.5</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 19, 2023</span>
+                                                        <small>03.05PM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success-subtle text-success fs-12 p-1">Published</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck3">
+                                                            <label class="visually-hidden" for="customCheck3"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/3.png" alt="Product-3" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Snitch Fashion Cap</span>
+                                                                <span>Category : Fashion</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Snitch</span></td>
+                                                    <td>986</td>
+                                                    <td>602</td>
+                                                    <td>$12.42</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.4</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 17, 2023</span>
+                                                        <small>06.12PM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-warning-subtle text-warning fs-12 p-1">Pending</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck4">
+                                                            <label class="visually-hidden" for="customCheck4"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/4.png" alt="Product-4" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Titan Casual Wall Watch</span>
+                                                                <span>Category : Clock</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Titan</span></td>
+                                                    <td>156</td>
+                                                    <td>101</td>
+                                                    <td>$38.56</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 3.7</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 16, 2023</span>
+                                                        <small>09.59AM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success-subtle text-success fs-12 p-1">Published</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck5">
+                                                            <label class="visually-hidden" for="customCheck5"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/5.png" alt="Product-5" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Baby Toy Truck</span>
+                                                                <span>Category : Toy</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">JCB</span></td>
+                                                    <td>89</td>
+                                                    <td>72</td>
+                                                    <td>$35.56</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.2</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 14, 2023</span>
+                                                        <small>12.18AM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-warning-subtle text-warning fs-12 p-1">Pending</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck6">
+                                                            <label class="visually-hidden" for="customCheck6"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/6.png" alt="Product-6" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Velvet Wooden Chair</span>
+                                                                <span>Category : Chair</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Wood</span></td>
+                                                    <td>56</td>
+                                                    <td>44</td>
+                                                    <td>$98.22</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.8</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 10, 2023</span>
+                                                        <small>02.26AM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-danger-subtle text-danger fs-12 p-1">Draft</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck7">
+                                                            <label class="visually-hidden" for="customCheck7"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/7.png" alt="Product-7" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">AirPods Max</span>
+                                                                <span>Category : Electronics</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Apple</span></td>
+                                                    <td>99</td>
+                                                    <td>19</td>
+                                                    <td>$78.19</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.2</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 8, 2023</span>
+                                                        <small>11.31AM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success-subtle text-success fs-12 p-1">Published</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck8">
+                                                            <label class="visually-hidden" for="customCheck8"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/8.png" alt="Product-8" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Nike Snickers</span>
+                                                                <span>Category : Shoes</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Nike</span></td>
+                                                    <td>196</td>
+                                                    <td>156</td>
+                                                    <td>$42.33</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 3.6</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 07, 2023</span>
+                                                        <small>01.34PM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-danger-subtle text-danger fs-12 p-1">Draft</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck9">
+                                                            <label class="visually-hidden" for="customCheck9"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/9.png" alt="Product-9" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Velvet Wooden Sofa</span>
+                                                                <span>Category : Sofa</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Wood</span></td>
+                                                    <td>124</td>
+                                                    <td>102</td>
+                                                    <td>$142.55</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 3.4</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 06, 2023</span>
+                                                        <small>02.52PM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-warning-subtle text-warning fs-12 p-1">Pending</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input fs-15" id="customCheck10">
+                                                            <label class="visually-hidden" for="customCheck10"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted fw-semibold">#19845</span></td>
+                                                    <td>
+                                                        <div class="d-flex justify-content-start align-items-center gap-3">
+                                                            <div class="avatar avatar-md">
+                                                                <img src="assets/images/products/10.png" alt="Product-10" class="img-fluid rounded-2">
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <span class="fw-medium text-nowrap">Rolex Stream Silver</span>
+                                                                <span>Category : Watch</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><span class="fs-15 text-muted">Wood</span></td>
+                                                    <td>188</td>
+                                                    <td>145</td>
+                                                    <td>$91.99</td>
+                                                    <td><span class="badge p-1 bg-light text-dark fs-12"><i class="ti ti-star-filled align-text-top fs-14 text-warning me-1"></i> 4.5</span></td>
+                                                    <td>
+                                                        <span class="d-block">Apr 06, 2023</span>
+                                                        <small>02.52PM</small>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success-subtle text-success fs-12 p-1">Published</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center justify-content-center gap-1">
+                                                            <a href="javascript:void(0);" class="btn btn-soft-primary btn-icon btn-sm rounded-circle"> <i class="ti ti-eye fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-success btn-icon btn-sm rounded-circle"> <i class="ti ti-edit fs-16"></i></a>
+                                                            <a href="javascript:void(0);" class="btn btn-soft-danger btn-icon btn-sm rounded-circle"> <i class="ti ti-trash fs-16"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-end">
+                                        <ul class="pagination mb-0 justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a href="#" class="page-link"><i class="ti ti-chevrons-left"></i></a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="#" class="page-link">1</a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a href="#" class="page-link">2</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="#" class="page-link">3</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a href="#" class="page-link"><i class="ti ti-chevrons-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div><!-- card-footer -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div> <!-- container -->
+
+            @@include('./partials/footer.html')
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    @@include('./partials/customizer.html')
+
+    @@include('./partials/footer-scripts.html')
+
+    <!-- apexcharts js -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Sellers Demo App js -->
+    <script src="assets/js/pages/sellers-details.js"></script>
+
+</body>
+
+</html>
