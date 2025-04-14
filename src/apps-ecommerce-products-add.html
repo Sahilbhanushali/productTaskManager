@@ -183,7 +183,10 @@ const myDropzone = new Dropzone("#myAwesomeDropzone", {
             }
 
             if (dz.getQueuedFiles().length > 0) {
+                
                 uploadedImageURLs.length = 0; 
+                console.log(uploadedImageURLs);
+                
                 dz.processQueue(); 
             } else {
                 submitProductData(); 
@@ -191,20 +194,23 @@ const myDropzone = new Dropzone("#myAwesomeDropzone", {
         });
 
         dz.on("sending", function (file, xhr, formData) {
+        
             formData.append("upload_preset", "product_uploads");
         });
 
         dz.on("success", function (file, response) {
+            console.log(response);
+            
             if (response.secure_url) {
                 uploadedImageURLs.push(response.secure_url);
             }
         });
 
         dz.on("queuecomplete", function () {
-            
-            setTimeout(() => {
-                submitProductData();
-            }, 300);
+            console.log("All files have been uploaded.");
+            console.log(uploadedImageURLs);
+            submitProductData();
+         
         });
     }
 });

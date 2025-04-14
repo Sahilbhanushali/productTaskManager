@@ -11,6 +11,7 @@ router.post("/createproduct", (req, res) => {
       if (err) return res.status(500).json({ error: err });
       const productId = result.insertId;
       const imageValues = images.map((url) => [productId, url]);
+
       db.query(
         "INSERT INTO product_images (product_id, image_url) VALUES ?",
         [imageValues],
@@ -34,7 +35,6 @@ router.get("/getproduct", (req, res) => {
   `;
   db.query(query, (err, results) => {
     if (err) return res.status(500).json({ error: err });
-    console.log(results);
 
     const productsMap = {};
     results.forEach((row) => {
@@ -48,6 +48,7 @@ router.get("/getproduct", (req, res) => {
       }
       if (row.image_url) productsMap[row.id].images.push(row.image_url);
     });
+    console.log(productsMap);
     res.json(Object.values(productsMap));
   });
 });
@@ -73,6 +74,7 @@ router.get("/getproduct/:id", (req, res) => {
       }
       if (row.image_url) productsMap[row.id].images.push(row.image_url);
     });
+
     res.json(Object.values(productsMap));
   });
 });
@@ -86,32 +88,14 @@ router.put("/editproduct/:id", (req, res) => {
     [name, price, productId],
     (err) => {
       if (err) return res.status(500).json({ error: err });
-
-      db.query(
-        "DELETE FROM product_images WHERE product_id = ?",
-        [productId],
-        (err) => {
-          if (err) return res.status(500).json({ error: err });
-
-          const imageValues = images.map((url) => [productId, url]);
-
-          db.query(
-            "INSERT INTO product_images (product_id, image_url) VALUES ?",
-            [imageValues],
-            (err) => {
-              if (err) return res.status(500).json({ error: err });
-              res.json({ message: "Product updated successfully" });
-            }
-          );
-        }
-      );
+      res.json({ message: "Product updated successfully" });
     }
   );
 });
 
 router.put("/deleteproduct/:id", (req, res) => {
   const productId = req.params.id;
-  console.log(productId);
+
   db.query(
     "UPDATE products SET deleted = 1 WHERE id = ?",
     [productId],
